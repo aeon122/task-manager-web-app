@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+// src/App.js
+// Main entry point for the app. Sets up routing and layout.
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import TasksPage from './pages/TasksPage';
+import Contact from './pages/Contact'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* Layout wrap all view and includes NavBar and footer */}
+      <Layout>
+        <Routes>
+          <Route path="/" element={<TasksPage />} />   
+          {/* Route for the /todos view */}
+          <Route path="/tasks" element={<TasksPage />} />
+          {/* Route for the /contact view */}
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
