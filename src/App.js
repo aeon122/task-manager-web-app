@@ -12,9 +12,11 @@ function App() {
   return (
     <Router>
       {/* Layout wrap all view and includes NavBar and footer */}
+      {/* Layout provides shared UI: NavBar, container, and footer */}
+      {/* Inside Layout.js, {children} === <TasksPage /> */}
       <Layout>
         <Routes>
-          <Route path="/" element={<TasksPage />} />   
+          <Route path="/" element={<TasksPage />} />
           {/* Route for the /todos view */}
           <Route path="/tasks" element={<TasksPage />} />
           {/* Route for the /contact view */}

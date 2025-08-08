@@ -11,12 +11,22 @@ function TasksPage() {
   const [filter, setFilter] = useState('all');
 
   return (
-    <div className="card shadow-sm p-4">
-      <h1 className="mb-4 text-primary">Task Manager</h1>
-      <Form setTodos={setTodos} />
-      <FilterButtons filter={filter} setFilter={setFilter} />
-      <List todos={todos} setTodos={setTodos} filter={filter} />
+    <div>
+      <h1 className="text-primary text-center mb-4 fade-in-top">Welcome to the Task Manager</h1>
+
+      <div className="card shadow-sm p-4 py-5">
+        <Form setTodos={setTodos} />
+        <FilterButtons filter={filter} setFilter={setFilter} />
+        <List todos={todos} setTodos={setTodos} filter={filter} />
+      </div>
+
+      <p className="lead fade-in-bottom mt-4">
+        Use this app to create, manage, and track your daily tasks. Add new todos,
+        mark them as complete, filter by status, and keep your productivity on point.
+        You can also reach out via the Contact page if you have any questions or feedback!
+      </p>
     </div>
+
   );
 }
 
