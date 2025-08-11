@@ -8,9 +8,9 @@ function Layout({ children }) {
     <div className="bg-light">
       <NavBar />
       {/* Bootstrap container with centered column */}
-      <main className="container my-4 py-5">
-        <div className="row justify-content-center">
-          <div className="col-md-10 col-lg-8">
+      <main className="container my-5 py-md-5">
+        <div className="row justify-content-center pb-md-5 mb-md-4">
+          <div className="col-12 col-md-10 col-lg-8">
             {/* Render whatever is passed inside <Layout> — e.g. <TasksPage /> or <Contact /> */}
             {children}
           </div>
