@@ -1,14 +1,22 @@
 // src/pages/TasksPage.js
 // Page for managing the todo list
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from '../components/Form';
 import List from '../components/List';
 import FilterButtons from '../components/FiltherButtons';
 
 function TasksPage() {
-  // State for list of todos and the current filter
-  const [todos, setTodos] = useState([]);
+   // Load tasks from localStorage on first render
+  const [todos, setTodos] = useState(() => {
+    const savetodos = localStorage.getItem('todos');
+    return savetodos ? JSON.parse(savetodos) : [];
+  });
+
   const [filter, setFilter] = useState('all');
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div>
